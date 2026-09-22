@@ -1,2 +1,2 @@
 # colegiosaojose
- thiagohenriquemorangoni-stack.github.io.
+ https://thiagohenriquemorangoni-stack.github.io/colegiosaojose/45-anos/
