@@ -1,0 +1,951 @@
+/* =========================================================
+   TRABALHO ESCOLAR — LANDING PAGE
+   Visual inspirado na identidade da escola enviada pelo usuário.
+
+   A página NÃO é um site institucional.
+   Ela usa somente elementos visuais semelhantes:
+   header, banner, cards coloridos e conteúdo informativo.
+   ========================================================= */
+
+
+/* =========================================================
+   VARIÁVEIS
+   ========================================================= */
+
+:root {
+    --blue: #075a9f;
+    --blue-dark: #063f78;
+    --blue-deep: #043467;
+
+    --red: #ed1c24;
+    --red-dark: #c91017;
+
+    --yellow: #f6b719;
+    --green: #19a64a;
+    --purple: #6735b9;
+
+    --white: #ffffff;
+    --background: #f7fbff;
+    --text: #164e7c;
+    --text-light: #607890;
+
+    --border: #dce8f2;
+
+    --shadow: 0 8px 25px rgba(4, 54, 103, 0.10);
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: "Nunito", Arial, sans-serif;
+    color: var(--text);
+    background: var(--background);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+    width: 100%;
+    height: 92px;
+    background: var(--white);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    box-shadow: 0 2px 12px rgba(0, 40, 80, 0.08);
+}
+
+.header-inner {
+    width: min(1380px, calc(100% - 80px));
+    height: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+}
+
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    min-width: 310px;
+}
+
+.logo-mark {
+    width: 62px;
+    height: 62px;
+
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--red);
+    color: var(--white);
+
+    font-size: 15px;
+    font-weight: 900;
+
+    border: 4px solid #fff;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .12);
+}
+
+.logo-text strong {
+    display: block;
+
+    color: var(--blue-dark);
+
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.logo-text span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--blue-dark);
+
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .6px;
+}
+
+
+/* MENU */
+
+.menu {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 35px;
+}
+
+.menu a {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 4px;
+
+    border-bottom: 3px solid transparent;
+
+    color: var(--blue-deep);
+
+    font-size: 15px;
+    font-weight: 800;
+
+    transition: .2s;
+}
+
+.menu a:hover,
+.menu a.active {
+    color: var(--red);
+    border-bottom-color: var(--red);
+}
+
+
+/* MENU MOBILE */
+
+.menu-button {
+    display: none;
+
+    border: 0;
+    background: transparent;
+
+    color: var(--blue-dark);
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   BANNER
+   ========================================================= */
+
+/*
+    Aqui está o ponto mais importante:
+
+    A imagem Banner.jpg é inserida como <img> e não como
+    background.
+
+    Isso faz com que:
+      width: 100%  -> acompanhe a largura da tela
+      height: auto -> preserve a proporção original
+
+    Portanto, a imagem NÃO é cortada nem deformada.
+*/
+
+.banner {
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    background: var(--blue);
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   MENU DE ÍCONES
+   ========================================================= */
+
+.quick-menu {
+    width: 100%;
+
+    background: var(--white);
+}
+
+.quick-grid {
+    width: min(1380px, calc(100% - 80px));
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+    background: var(--white);
+
+    box-shadow: var(--shadow);
+
+    border-radius: 0 0 18px 18px;
+
+    overflow: hidden;
+}
+
+.quick-card {
+    min-height: 125px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 18px;
+
+    border-right: 1px solid var(--border);
+
+    transition: .2s;
+}
+
+.quick-card:last-child {
+    border-right: 0;
+}
+
+.quick-card:hover {
+    background: #f0f8ff;
+}
+
+.quick-content {
+    flex: 1;
+}
+
+.quick-content strong {
+    display: block;
+
+    color: var(--blue-dark);
+
+    font-size: 15px;
+    font-weight: 900;
+
+    line-height: 1.15;
+}
+
+.quick-content span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--text-light);
+
+    font-size: 11px;
+    line-height: 1.2;
+}
+
+.quick-card > b {
+    color: var(--red);
+    font-size: 28px;
+}
+
+
+/* ÍCONES */
+
+.quick-icon {
+    width: 58px;
+    height: 58px;
+
+    flex: 0 0 58px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    color: #fff;
+
+    font-size: 15px;
+    font-weight: 900;
+}
+
+.icon-red {
+    background: var(--red);
+}
+
+.icon-blue {
+    background: #1168ad;
+}
+
+.icon-yellow {
+    background: var(--yellow);
+}
+
+.icon-green {
+    background: var(--green);
+}
+
+.icon-purple {
+    background: var(--purple);
+}
+
+.icon-navy {
+    background: var(--blue);
+}
+
+
+/* =========================================================
+   CONTEÚDO
+   ========================================================= */
+
+.content {
+    width: min(1250px, calc(100% - 80px));
+
+    margin: 0 auto;
+
+    padding: 55px 0 65px;
+}
+
+
+/* =========================================================
+   BLOCOS DE INFORMAÇÃO
+
+   Desktop:
+   ┌────────────────────┬─────────────────┐
+   │       TEXTO        │      IMAGEM     │
+   └────────────────────┴─────────────────┘
+
+   .reverse inverte:
+   ┌────────────────────┬─────────────────┐
+   │       IMAGEM       │      TEXTO      │
+   └────────────────────┴─────────────────┘
+   ========================================================= */
+
+.info-section {
+    min-height: 340px;
+
+    display: grid;
+
+    grid-template-columns: 1.1fr .9fr;
+
+    gap: 55px;
+
+    align-items: center;
+
+    padding: 45px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.info-section.reverse {
+    grid-template-columns: .9fr 1.1fr;
+}
+
+.info-section.reverse .info-text {
+    order: 2;
+}
+
+.info-section.reverse .image-placeholder {
+    order: 1;
+}
+
+
+/* TEXTO */
+
+.info-text {
+    max-width: 680px;
+}
+
+.section-number {
+    display: inline-block;
+
+    margin-bottom: 7px;
+
+    color: var(--red);
+
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.info-text h1,
+.info-text h2 {
+    color: var(--blue-dark);
+
+    font-size: 30px;
+    font-weight: 900;
+
+    line-height: 1.15;
+}
+
+.red-line {
+    width: 50px;
+    height: 4px;
+
+    margin: 12px 0 18px;
+
+    border-radius: 10px;
+
+    background: var(--red);
+}
+
+.info-text p {
+    margin-bottom: 13px;
+
+    color: #416989;
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   PLACEHOLDER DE IMAGEM
+
+   Basta substituir o conteúdo pelo <img> futuramente.
+
+   Exemplo:
+
+   <div class="image-placeholder">
+       <img src="imagens/foto.jpg" alt="Descrição">
+   </div>
+   ========================================================= */
+
+.image-placeholder {
+    width: 100%;
+    min-height: 280px;
+
+    border-radius: 15px;
+
+    border: 2px dashed #8bb5d4;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #e0eff9 0,
+            #e0eff9 14px,
+            #d1e6f5 14px,
+            #d1e6f5 28px
+        );
+
+    color: #27648e;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+.image-placeholder span {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.image-placeholder small {
+    max-width: 80%;
+
+    margin-top: 7px;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.image-placeholder img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   REFERÊNCIAS
+   ========================================================= */
+
+.references {
+    padding: 50px 0;
+
+    background: #eaf5fd;
+}
+
+.references-inner {
+    width: min(1250px, calc(100% - 80px));
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: .7fr 1.3fr;
+
+    gap: 60px;
+
+    align-items: center;
+}
+
+.references h2 {
+    margin-top: 5px;
+
+    color: var(--blue-dark);
+
+    font-size: 25px;
+}
+
+.reference-text {
+    padding-left: 30px;
+
+    border-left: 3px solid var(--red);
+}
+
+.reference-text p {
+    margin: 7px 0;
+
+    color: #416989;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+    background: var(--blue-dark);
+
+    color: #fff;
+
+    border-top: 5px solid var(--red);
+}
+
+.footer-inner {
+    width: min(1380px, calc(100% - 80px));
+
+    min-height: 120px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr auto;
+
+    gap: 30px;
+
+    align-items: center;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.footer-logo .logo-mark {
+    width: 50px;
+    height: 50px;
+
+    font-size: 12px;
+}
+
+.footer-logo strong {
+    display: block;
+
+    font-size: 18px;
+}
+
+.footer-logo span {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.footer-inner > p {
+    color: rgba(255, 255, 255, .85);
+
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.footer-copy {
+    font-size: 11px;
+
+    white-space: nowrap;
+
+    color: rgba(255, 255, 255, .8);
+}
+
+
+/* =========================================================
+   TABLETS
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .header-inner,
+    .quick-grid,
+    .footer-inner {
+        width: calc(100% - 40px);
+    }
+
+    .content,
+    .references-inner {
+        width: calc(100% - 60px);
+    }
+
+    .logo {
+        min-width: auto;
+    }
+
+    .logo-text strong {
+        font-size: 20px;
+    }
+
+    .menu {
+        gap: 20px;
+    }
+
+    .menu a {
+        font-size: 14px;
+    }
+
+    .quick-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .quick-card {
+        border-bottom: 1px solid var(--border);
+    }
+
+    .quick-card:nth-child(3n) {
+        border-right: 0;
+    }
+
+    .info-section,
+    .info-section.reverse {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 35px;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr 1fr;
+
+        padding: 25px 0;
+    }
+
+    .footer-copy {
+        white-space: normal;
+    }
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    .header {
+        height: 75px;
+    }
+
+    .header-inner {
+        width: calc(100% - 28px);
+    }
+
+    .logo-mark {
+        width: 50px;
+        height: 50px;
+
+        font-size: 12px;
+    }
+
+    .logo-text strong {
+        font-size: 18px;
+    }
+
+    .logo-text span {
+        font-size: 8px;
+    }
+
+
+    /* MENU MOBILE */
+
+    .menu-button {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+
+        position: absolute;
+
+        top: 75px;
+        left: 0;
+        right: 0;
+
+        height: auto;
+
+        padding: 10px 20px;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 0;
+
+        background: var(--white);
+
+        box-shadow: var(--shadow);
+    }
+
+    .menu.open {
+        display: flex;
+    }
+
+    .menu a {
+        height: auto;
+
+        padding: 15px 8px;
+
+        border-bottom: 1px solid var(--border);
+    }
+
+
+    /*
+       O BANNER NÃO recebe altura fixa.
+       A imagem continua com width: 100% e height: auto.
+       Isso é o que impede a deformação em celulares.
+    */
+
+    .banner img {
+        width: 100%;
+        height: auto;
+    }
+
+
+    /* CARDS */
+
+    .quick-grid {
+        width: calc(100% - 20px);
+
+        grid-template-columns: 1fr 1fr;
+
+        border-radius: 0 0 12px 12px;
+    }
+
+    .quick-card,
+    .quick-card:nth-child(n) {
+        min-height: 105px;
+
+        border-right: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+
+        padding: 13px 10px;
+    }
+
+    .quick-card:nth-child(2n) {
+        border-right: 0;
+    }
+
+    .quick-icon {
+        width: 48px;
+        height: 48px;
+
+        flex-basis: 48px;
+
+        font-size: 13px;
+    }
+
+    .quick-content strong {
+        font-size: 13px;
+    }
+
+    .quick-content span {
+        font-size: 10px;
+    }
+
+    .quick-card > b {
+        display: none;
+    }
+
+
+    /* CONTEÚDO */
+
+    .content {
+        width: calc(100% - 32px);
+
+        padding-top: 25px;
+    }
+
+    .info-section,
+    .info-section.reverse {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+        padding: 35px 0;
+    }
+
+    .info-section.reverse .info-text,
+    .info-section.reverse .image-placeholder {
+        order: initial;
+    }
+
+    .info-text h1,
+    .info-text h2 {
+        font-size: 25px;
+    }
+
+    .info-text p {
+        font-size: 14px;
+    }
+
+    .image-placeholder {
+        min-height: 230px;
+    }
+
+
+    /* REFERÊNCIAS */
+
+    .references-inner {
+        width: calc(100% - 32px);
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .reference-text {
+        padding-left: 18px;
+    }
+
+
+    /* FOOTER */
+
+    .footer-inner {
+        width: calc(100% - 32px);
+
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+        padding: 30px 0;
+    }
+
+    .footer-logo {
+        justify-content: center;
+    }
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+    .logo-text strong {
+        font-size: 16px;
+    }
+
+    .logo-text span {
+        font-size: 7px;
+    }
+
+    .quick-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-card,
+    .quick-card:nth-child(n) {
+        border-right: 0;
+    }
+
+    .quick-card {
+        min-height: 82px;
+    }
+
+    .quick-icon {
+        width: 44px;
+        height: 44px;
+
+        flex-basis: 44px;
+    }
+}
