@@ -313,7 +313,7 @@ a {
     line-height: 1.2;
 }
 
-.quick-card > b {
+.quick-card>b {
     color: var(--red);
     font-size: 28px;
 }
@@ -489,13 +489,11 @@ a {
     border: 2px dashed #8bb5d4;
 
     background:
-        repeating-linear-gradient(
-            45deg,
+        repeating-linear-gradient(45deg,
             #e0eff9 0,
             #e0eff9 14px,
             #d1e6f5 14px,
-            #d1e6f5 28px
-        );
+            #d1e6f5 28px);
 
     color: #27648e;
 
@@ -636,7 +634,7 @@ a {
     font-weight: 800;
 }
 
-.footer-inner > p {
+.footer-inner>p {
     color: rgba(255, 255, 255, .85);
 
     font-size: 12px;
@@ -651,6 +649,36 @@ a {
     color: rgba(255, 255, 255, .8);
 }
 
+.animacao-carro {
+    position: relative;
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+}
+
+.carro-animado {
+    position: absolute;
+    width: 700px;
+    max-width: none;
+    height: auto;
+
+    top: 50%;
+    left: 100%;
+
+    transform: translateY(-50%);
+
+    animation: carro-passando 12s linear infinite;
+}
+
+@keyframes carro-passando {
+    from {
+        left: 100%;
+    }
+
+    to {
+        left: -900px;
+    }
+}
 
 /* =========================================================
    TABLETS
@@ -841,7 +869,7 @@ a {
         font-size: 10px;
     }
 
-    .quick-card > b {
+    .quick-card>b {
         display: none;
     }
 
@@ -948,4 +976,5 @@ a {
 
         flex-basis: 44px;
     }
+
 }
